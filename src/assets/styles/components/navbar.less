@@ -1,0 +1,77 @@
+@import '../common/variables';
+@import '../common/mixins';
+
+.navbar {
+  height: @navbar-height;
+  position: relative;
+  display: flex;
+  z-index: 5;
+  &:after {
+    .bottom-line(currentColor);
+  }
+
+  &-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: @base-zindex * 100;
+  }
+
+  &-item {
+    flex: 0 0 (100% - @navbar-center-width) / 2;
+    padding: 0 @body-padding-vertical / 1.2;
+    min-height: 20px;
+    font-size: @navbar-item-fontsize;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    &:first-child {
+      order: 1;
+      margin-right: -(100% - @navbar-center-width) / 2;
+      justify-content: center;
+    }
+    &:last-child {
+      order: 3;
+      //    justify-content: flex-end;
+      justify-content: center;
+      > a {
+        // justify-content: flex-end;
+        justify-content: center;
+      }
+    }
+    > a {
+      display: flex;
+      align-items: center;
+      height: @navbar-height;
+      min-width: (100% - @navbar-center-width) / 2; /* for low version android */
+      flex: 1;
+    }
+  }
+
+  &-center-box {
+    order: 2;
+    height: @navbar-height;
+    // width: @navbar-center-width;
+    width: 100%;
+    margin-left: (100% - @navbar-center-width) / 2;
+  }
+
+  &-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    &-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    img {
+      height: 60%;
+    }
+  }
+}

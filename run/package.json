@@ -1,0 +1,13 @@
+{
+  "name": "mallfend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "pm2 start ./bin/www --watch -i max --name mallFend",
+    "stop": "pm2 stop mallFend"
+  },
+  "dependencies": {
+    "express": "~4.16.0"
+  },
+  "devDependencies": {}
+}
